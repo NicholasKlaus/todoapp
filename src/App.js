@@ -1,5 +1,5 @@
 import React from 'react';
-import {TodoPage} from "./pages/TodoPage";
+import TodoPage from "./pages/TodoPage";
 
 function App() {
   return (
