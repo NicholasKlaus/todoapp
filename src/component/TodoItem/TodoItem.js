@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { 
   Button, 
   InputGroup, 
 } from 'react-bootstrap';
-import { Context } from "../../Context";
+import { Context } from "../../helpers/Context";
 
 class TodoItem extends React.Component {
 
@@ -14,14 +14,16 @@ class TodoItem extends React.Component {
       <li className={`task-list__item ${(this.props.el.completed === true) ? 'checked' : ''}`}>
         <div className='wrapper'>
           <InputGroup.Checkbox
-            onChange={() => this.context[1](this.props.el.id)}
+            onChange={() => this.context.onToggle(this.props.el.id)}
             checked={this.props.el.completed}
             className="checkbox"
             aria-label="Checkbox for following text input"
           />
-          <div className='text-wrap'> {this.props.el.value} </div>
+          <div className='text-wrap'> 
+            {this.props.el.value} 
+          </div>
         </div>
-        <Button onClick={() => this.context[0](this.props.el.id)} variant="outline-danger">&times;</Button>
+        <Button onClick={() => this.context.onRemove(this.props.el.id)} variant="outline-danger">&times;</Button>
       </li>
     );
   }

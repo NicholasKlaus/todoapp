@@ -11,7 +11,10 @@ class TodoList extends React.Component {
       <ul className='task-list'>
         {this.props.data.map((el, key) => {
           return (
-            <TodoItem el={el} key={key} onChange={this.props.onToggle} removeTodo={this.props.removeTask} />
+            <TodoItem 
+              el={el} 
+              key={key} 
+            />
           )
         })}
       </ul>

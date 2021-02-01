@@ -1,7 +1,8 @@
-import React,{ useState, useEffect } from "react";
-import TodoList from "../component/TodoList/TodoList";
-import AddTodo from "../component/AddTodo/AddTodo";
-import { Context } from "../Context";
+import React from "react";
+import TodoList from "./component/TodoList/TodoList";
+import AddTodo from "./component/NewTodoInput/NewTodoInput";
+import { Context } from "./helpers/Context";
+
 
 class TodoPage extends React.Component {
   state = {
@@ -44,7 +45,7 @@ class TodoPage extends React.Component {
     );
   }
 
-  del = (id) => {
+  removeItem = (id) => {
     this.setState({arr: this.state.arr.filter(el => el.id !== id)})
   }
 
@@ -55,7 +56,10 @@ class TodoPage extends React.Component {
   render(){
     return(
       <Context.Provider value= {
-        [this.del, this.toggleTodo]
+        {
+        onRemove: this.removeItem,
+        onToggle: this.toggleTodo
+        } 
       }>
         <div className="todo">
           <div className='container' >
@@ -65,7 +69,7 @@ class TodoPage extends React.Component {
               </div>
             </header>
             <AddTodo onCreate={this.addTodo} />
-            <TodoList data={this.state.arr} onToggle={this.toggleTodo} removeTask={this.del} />
+            <TodoList data={this.state.arr} />
           </div>
         </div>
       </Context.Provider>
