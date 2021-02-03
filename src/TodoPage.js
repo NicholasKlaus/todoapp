@@ -22,16 +22,18 @@ class TodoPage extends React.Component {
         value: "Finish reading the book",
         completed: false,
       },
-    ]
+    ],
   }
 
-  componentDidMount(){
+  componentDidUpdate() {
     localStorage.setItem('tasks', JSON.stringify(this.state.arr));
   }
 
-  componentDidMount(){
-    const tasks = localStorage.getItem('tasks' ? JSON.parse(localStorage.getItem('tasks')) : []);
-    this.setState({ tasks: tasks})
+  componentDidMount() {
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    if (tasks !== null) {
+      this.setState({arr: tasks});
+    }
   }
 
   toggleTodo = (id) => {
@@ -53,7 +55,7 @@ class TodoPage extends React.Component {
     this.setState({arr: [...this.state.arr, value]})
   }
 
-  render(){
+  render() {
     return(
       <Context.Provider value= {
         {
