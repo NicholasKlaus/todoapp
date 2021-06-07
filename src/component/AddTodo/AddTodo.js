@@ -1,10 +1,5 @@
 import React from 'react';
-import { 
-  Button,
-  InputGroup,
-  FormControl,
-} from 'react-bootstrap';
-
+import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
 class AddTodo extends React.Component { 
   state = {

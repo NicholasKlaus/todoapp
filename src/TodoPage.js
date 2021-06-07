@@ -1,6 +1,6 @@
 import React from "react";
 import TodoList from "./component/TodoList/TodoList";
-import AddTodo from "./component/NewTodoInput/NewTodoInput";
+import AddTodo from "./component/AddTodo/AddTodo";
 import { Context } from "./helpers/Context";
 
 

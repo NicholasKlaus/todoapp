@@ -1,12 +1,8 @@
 import React from 'react';
-import { 
-  Button, 
-  InputGroup, 
-} from 'react-bootstrap';
+import { Button, InputGroup } from 'react-bootstrap';
 import { Context } from "../../helpers/Context";
 
 class TodoItem extends React.Component {
-
   static contextType = Context;
 
   render() {
